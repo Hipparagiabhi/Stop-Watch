@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            box-sizing: border-box;
+        
+        }
+        .container{
+            display: grid;
+            height:90vh;
+            justify-content: center;
+            align-items: center;
+            /* width: 2000px; */
+        }
+        .test{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .test2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+        .div{
+            background-color: darkorange;
+            width: 500px;
+            height: 300px;
+           
+        }
+        .btn{
+            margin-top: 10px;
+            padding:10px;
+            background-color: transparent;
+            margin-right: 20px;
+            font-size: x-large;
+            font-weight: 800;
+            }
+        .test3{
+            display:flex;
+        }
+
+        #stopwatch{
+            font-size:xx-large;
+            font-weight: 800;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="div">
+            <div class="test">
+                <h1>STOP WATCH</h1>
+                <h2>VANILLA JAVA SCRIPT STOP WATCH</h2>
+                    <div class="test3">
+                        <div id="stopwatch">00:00:00</div>
+                    </div>
+            </div>
+            <div class="test2">
+                <button class="btn" id="btn1" >START</button>
+                <button class="btn" id="btn2" >STOP</button>
+                <button class="btn" id="btn3">RESET</button>
+            </div>    
+        </div>
+    </div>
+
+    <Script>
+        let a=document.getElementById("stopwatch");
+        let start=document.getElementById("btn1");
+        let stop1=document.getElementById("btn2");
+        let reset=document.getElementById("btn3");
+        let hr=00;
+        let min=00;
+        let sec=00;
+        
+        start.onclick=handler;
+
+         function handler(){
+            timerCycle();
+        }
+
+         function timerCycle(){
+            sec=sec+01;
+            if(sec==60){
+                min=min+01;
+                sec=00;
+            }
+            if(min==60){
+                hr=hr+01;
+                min=00;
+                sec=00;
+            }
+            stopwatch.innerHTML = hr+ ':' + min + ':' + sec ;
+            timestop = setTimeout("timerCycle()",1000);
+         }
+
+         stop1.onclick=handler2;
+
+         function handler2(){
+            clearTimeout(timestop);
+          }
+
+         reset.onclick=handler3;
+
+         function handler3(){
+
+            // window.location.reload();
+
+             stopwatch.innerHTML="00:00:00";
+             hr = 0;
+             sec = 0;
+             min = 0;
+             clearTimeout(timestop);
+         }
+
+         
+
+            
+        
+    </Script>
+    
+</body>
+</html>
